@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hello Vue.js</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js'></script>
+    <script>
+        //인스턴스
+        new Vue({
+            el: '#app',                 
+            data: {                       
+                message: 'Hello vue.js!'
+            },
+            beforeCreate: function() {
+                console.log("생성전입니다");
+            },
+            created: function() {
+                console.log("생성되었습니다");
+            },
+            mounted: function() {
+                console.log("화면요소에 인스턴스 부착했습니다");
+                this.message="안녕 뷰.js";  //메시지의 값을 변경 //이 부분이 없으면 update 부분은 실행되지 않음
+            },
+            updated: function() {
+                console.log("값이 바뀌었습니다");
+            }
+        });
+    </script>
+</body>
+</html>
