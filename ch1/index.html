@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hello Vue.js</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js'></script>
+    <script>
+        //인스턴스
+        new Vue({
+            el: '#app',                 //el 속성, id가 app인 요소에 한해서 옵션 적용
+            data: {                        //data 속성
+                message: 'Hello vue.js!'
+            }
+        })
+    </script>
+</body>
+</html>
