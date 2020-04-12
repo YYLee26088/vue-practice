@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>props 예제</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div id="app">
+        <!--#4 HTML에 컴포넌트 태그 추가. 
+            v-bind 속성에서 상위 컴포넌트의 message 속성값을 propsdata로 전달-->
+        <child-cmp v-bind:propsdata="message"></child-cmp>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js'></script>
+    <script>
+        //#2 Vue.component() 이용하여 child-cmp 컴포넌트 등록
+        //컴포넌트 등록과 동시에 뷰 인스턴스 자체가 상위 컴포넌트가 됨
+        Vue.component('child-cmp',{
+            //#3 컴포넌트에 props 속성으로 propsdata 정의
+            props: ['propsdata'],
+            //#5 message 속성값이 propsdata로 전달됨
+            template: '<p>{{propsdata}}</p>'
+        });
+
+        //#1 인스턴스 생성
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'passed from parent cmp'
+            }
+        })
+    </script>
+</body>
+</html>
