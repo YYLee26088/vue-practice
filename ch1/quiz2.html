@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>데이터 전달 퀴즈</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div id="app">
+        <child-cmp v-bind:propsdata="message"></child-cmp>
+        <sibling-cmp v-bind:propsdata="message2"></sibling-cmp>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js'></script>
+    <script>
+        //할 일 #1 컴포넌트 등록
+        Vue.component('sibling-cmp', {
+            template: '<p>{{propsdata}}</P>',
+            props: ['propsdata']
+        })
+
+        Vue.component('child-cmp', {
+            props: ['propsdata'],
+            template: '<p>{{propsdata}}</p>'
+        })
+
+        new Vue({
+            el: '#app',               
+            data: {           
+                message: 'passed from parent component',
+                //할 일 #2 새로운 속성 1개 더 지정
+                message2: 'vue no jam.'
+            }
+        })
+    </script>
+</body>
+</html>
